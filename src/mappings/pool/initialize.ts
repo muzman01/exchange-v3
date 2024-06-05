@@ -1,4 +1,4 @@
-import { BigDecimal, BigInt } from '@graphprotocol/graph-ts'
+import { BigDecimal, BigInt, log } from '@graphprotocol/graph-ts'
 
 import { Bundle, Pool, Token } from '../../types/schema'
 import { Initialize } from '../../types/templates/Pool/Pool'
@@ -26,6 +26,10 @@ export function handleInitializeHelper(
   minimumEthLocked: BigDecimal = MINIMUM_ETH_LOCKED,
 ): void {
   // update pool sqrt price and tick
+  log.info('gelen adresssssssss {}', [event.address.toHexString()])
+  log.info('gelen sqrtPriceX96 {}', [event.params.sqrtPriceX96.toString()])
+  log.info('gelen tick {}', [event.params.tick.toString()])
+
   const pool = Pool.load(event.address.toHexString())!
   pool.sqrtPrice = event.params.sqrtPriceX96
   pool.tick = BigInt.fromI32(event.params.tick)

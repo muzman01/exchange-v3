@@ -23,9 +23,9 @@ export function handlePoolCreatedHelper(
   staticTokenDefinitions: StaticTokenDefinition[] = STATIC_TOKEN_DEFINITIONS,
 ): void {
   // temp fix
-  if (event.params.pool == Address.fromHexString('0x8fe8d9bb8eeba3ed688069c3d6b556c9ca258248')) {
-    return
-  }
+  // if (event.params.pool == Address.fromHexString('0x8fe8d9bb8eeba3ed688069c3d6b556c9ca258248')) {
+  //   return
+  // }
 
   // load factory
   let factory = Factory.load(factoryAddress)
